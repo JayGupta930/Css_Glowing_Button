@@ -1,0 +1,67 @@
+/* Basic Reset */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #282c34; /* Dark background for better glow visibility */
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff; /* Initial Button color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth scaling effect */
+    outline: none;
+    position: relative;
+}
+
+/* Glow effect */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background: rgba(0, 123, 255, 0.6); /* Light blue glow color */
+    filter: blur(15px); /* Blur effect for glow */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
+}
+
+/* Hover effect to show glow */
+.btn:hover::before {
+    opacity: 1; /* Show glow on hover */
+}
+
+/* Hover effect for color change */
+.btn:hover {
+    transform: scale(1.05); /* Slight scaling on hover */
+    animation: colorChange 4s infinite alternate; /* Start color change animation on hover */
+}
+
+/* Keyframes for color change */
+@keyframes colorChange {
+    0% {
+        background-color: #007bff; /* Blue */
+    }
+    25% {
+        background-color: #ff4757; /* Red */
+    }
+    50% {
+        background-color: #2ed573; /* Green */
+    }
+    75% {
+        background-color: #ffa502; /* Orange */
+    }
+    100% {
+        background-color: #1e90ff; /* Light Blue */
+    }
+}
